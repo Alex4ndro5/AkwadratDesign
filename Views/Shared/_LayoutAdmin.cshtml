@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="pl-pl">
+<head>
+    <title>Studio projektowania wnętrz Akwadrat</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Studio projektowania wnętrz">
+    <meta name="keywords" content="Wnętrza, Architekt wnętrz, Studio projektowania, Akwadrat">
+    <meta name="author" content="Aleksander Folfas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="~/images/icon_akwadrat.png">
+@*    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+*@    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
+@*    <link rel="stylesheet" href="~/AkwadratDesign.styles.css" asp-append-version="true" />
+*@    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="~/images/icon_akwadrat.png" alt="logo">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><h1>Akwadrat</h1> </a>
+            </div>
+            <nav>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Strona główna</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Projects" asp-action="Index">Projekty</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Firms" asp-action="Index">Firmy</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Clients" asp-action="Index">Klienci</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="ProjectFirms" asp-action="Index">Projekty i Firmy</a>
+            </nav>
+        </div>
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2023 - AkwadratDesign - <a asp-area="" asp-controller="Home" asp-action="Privacy">Polityka Prywatności</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
