@@ -145,7 +145,7 @@
 
 
 
-    .button:hover .button__drow1 {
+    .button:hover  {
         animation-fill-mode: forwards;
     }
 
@@ -523,7 +523,7 @@ footer {
 
             .about .row .image img {
                 height: 28rem;
-                box-shadow: .3rem .3rem .5rem var(--text);
+                box-shadow: .5rem .8rem .8rem var(--text);
           
             }
 
@@ -542,7 +542,7 @@ footer {
             }
 
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1400px) {
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
     }
