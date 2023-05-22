@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<head>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" asp-append-version="true" />
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        } 
+    </style>
+</head>
+<body>
+    <div class="center-container">
+        <form class="col-md-6" method="post" asp-controller="Admin" asp-action="Upload">
+            <!-- Login input -->
+            <div class="form-outline mb-4">
+                <input type="text" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Login</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+                <input type="password" id="form2Example2" class="form-control" />
+                <label class="form-label" for="form2Example2">Password</label>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <!-- Simple link -->
+                    <a href="#!">Forgot password?</a>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <input type="submit" value="Prześlij" class="btn btn-primary btn-block mb-4"></input>
+        </form>
+    </div>
+</body>

@@ -1,11 +1,9 @@
 ﻿using AkwadratDesign.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace AkwadratDesign.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -14,12 +12,37 @@ namespace AkwadratDesign.Controllers
         {
             _logger = logger;
         }
-        [AllowAnonymous]
+
         public IActionResult Index()
         {
             return View();
         }
-
+        [Route("/agnieszka-osypanka/")]
+        public IActionResult About()
+        {
+            return View();
+        }
+        [Route("/kontakt/")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        [Route("/wspolpraca/")]
+        public IActionResult Collaborations()
+        {
+            return View();
+        }
+        [Route("/realizacje/")]
+        public IActionResult Portfolio()
+        {
+            return View();
+        }
+        [Route("/admin")]
+        public IActionResult Admin()
+        {
+            return View();
+        }
+        [Route("/polityka-prywatnosci/")]
         public IActionResult Privacy()
         {
             return View();

@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Kontakt";
+}
+<body>
+    <main>
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Kontakt</h2>
+                <form>
+                    <div class="contact-grid">
+                        <input type="text" name="name" id="name" placeholder="Imię i nazwisko" class="form-element">
+                        <input type="email" name="email" id="email" placeholder="E-mail" class="form-element">
+                        <textarea name="message" id="message" placeholder="Wiadomość" class="form-area"></textarea>
+                    </div>
+                    <div class="align" style="text-align: right;">
+                       
+                    <a class="button">
+                    <div class="button__line"></div>
+                    <div class="button__line"></div>
+                    <input type="submit" value="Wyślij" class="button__text">
+                    </a>
+
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="~/js/site.js"></script>
+</body>
+

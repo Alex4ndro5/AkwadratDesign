@@ -1,8 +1,26 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Strona główna";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<body>
+    <main>
+        <section id="mainpage" class="banner">
+            <div class="container">
+
+                <h2>Dobre wnętrze to całość. Architektura – układ ścian, proporcje przestrzeni i rozwiązanie funkcji. To także kolorystyka, odpowiedni dobór materiałów, elementów wyposażenia, a nawet gra zmieniającego się światła.</h2>
+
+                <h3><span></span> </h3>
+
+                <a class="button" asp-area="" asp-controller="Home" asp-action="About">
+                    <div class="button__line"></div>
+                    <div class="button__line"></div>
+                    <span class="button__text">Więcej o nas</span>
+                
+                </a>
+
+            </div>
+        </section>
+    </main>
+    <script src="~/js/site.js"></script>
+</body>
