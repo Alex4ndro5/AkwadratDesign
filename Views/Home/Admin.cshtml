@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="center-container">
-        <form class="col-md-6" method="post" asp-controller="Admin" asp-action="Upload">
+        <form class="col-md-6" method="post" asp-controller="Home" asp-action="AdminPanel">
             <!-- Login input -->
             <div class="form-outline mb-4">
                 <input type="text" id="form2Example1" class="form-control" />
@@ -34,15 +34,11 @@
                 <label class="form-label" for="form2Example2">Password</label>
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <!-- Simple link -->
-                    <a href="#!">Forgot password?</a>
-                </div>
-            </div>
-
             <!-- Submit button -->
-            <input type="submit" value="Prześlij" class="btn btn-primary btn-block mb-4"></input>
+            <input type="submit" value="Prześlij" class="btn btn-primary btn-block mb-4">
         </form>
+        <div>
+            <partial name="~/Views/Shared/_LoginPartial.cshtml" />
+        </div>
     </div>
 </body>

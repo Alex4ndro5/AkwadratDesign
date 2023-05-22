@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AkwadratDesign.Data;
 using AkwadratDesign.Models.DbModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AkwadratDesign.Controllers
 {
+    [Authorize]
     public class ClientsController : Controller
     {
         private readonly ApplicationDbContext _context;

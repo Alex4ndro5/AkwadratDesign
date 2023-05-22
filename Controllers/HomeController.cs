@@ -1,4 +1,5 @@
 ﻿using AkwadratDesign.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -39,6 +40,12 @@ namespace AkwadratDesign.Controllers
         }
         [Route("/admin")]
         public IActionResult Admin()
+        {
+            return View();
+        }
+        [Authorize]
+        [Route("/admin-panel")]
+        public IActionResult AdminPanel()
         {
             return View();
         }
