@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AkwadratDesign.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [Authorize]
     public class ClientsController : Controller
     {
@@ -17,6 +20,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Clients
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /Clients
+        /// </summary>
+        /// <returns>Zwraca widok listy klientów przechowywanych w bazie danych.</returns>
         public async Task<IActionResult> Index()
         {
             return _context.Clients != null ?
