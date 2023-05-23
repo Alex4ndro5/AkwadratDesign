@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AkwadratDesign.Data;
 using AkwadratDesign.Models.DbModels;
+using RunGroopWebApp.Interfaces;
+using AkwadratDesign.ViewModels;
+using System.Drawing;
+using System.Net;
 
 namespace AkwadratDesign.Controllers
 {
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IPhotoService _photoService;
 
-        public ProjectsController(ApplicationDbContext context)
+        public ProjectsController(ApplicationDbContext context, IPhotoService photoService)
         {
             _context = context;
+            _photoService = photoService;
         }
 
         // GET: Projects
