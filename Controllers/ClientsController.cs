@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AkwadratDesign.Data;
+﻿using AkwadratDesign.Data;
 using AkwadratDesign.Models.DbModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AkwadratDesign.Controllers
 {
@@ -24,9 +19,9 @@ namespace AkwadratDesign.Controllers
         // GET: Clients
         public async Task<IActionResult> Index()
         {
-              return _context.Clients != null ? 
-                          View(await _context.Clients.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Clients'  is null.");
+            return _context.Clients != null ?
+                        View(await _context.Clients.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Clients'  is null.");
         }
 
         // GET: Clients/Details/5
@@ -152,14 +147,14 @@ namespace AkwadratDesign.Controllers
             {
                 _context.Clients.Remove(client);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClientExists(int id)
         {
-          return (_context.Clients?.Any(e => e.ClientId == id)).GetValueOrDefault();
+            return (_context.Clients?.Any(e => e.ClientId == id)).GetValueOrDefault();
         }
     }
 }

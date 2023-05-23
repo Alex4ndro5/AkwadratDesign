@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Cryptography;
-
-namespace AkwadratDesign.Models.DbModels
+﻿namespace AkwadratDesign.Models.DbModels
 {
     /// <summary>
     /// Klasa: ProjectFirm

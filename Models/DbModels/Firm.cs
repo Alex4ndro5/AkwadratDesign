@@ -15,7 +15,7 @@ namespace AkwadratDesign.Models.DbModels
     /// </summary>
     public class Firm
     {
-        [Key]  
+        [Key]
         public int FirmId { get; set; }
         [Required]
         public string FirmName { get; set; }
@@ -25,6 +25,6 @@ namespace AkwadratDesign.Models.DbModels
         public Client Client { get; set; }
 
         public List<ProjectFirm> ProjectFirms { get; } = new();
-        public List<Project> Projects { get;} = new(); 
+        public List<Project> Projects { get; } = new();
     }
 }

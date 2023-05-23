@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AkwadratDesign.Data;
+using AkwadratDesign.Models.DbModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using AkwadratDesign.Data;
-using AkwadratDesign.Models.DbModels;
 
 namespace AkwadratDesign.Controllers
 {
@@ -161,14 +157,14 @@ namespace AkwadratDesign.Controllers
             {
                 _context.ProjectFirms.Remove(projectFirm);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProjectFirmExists(int id)
         {
-          return (_context.ProjectFirms?.Any(e => e.FirmsId == id)).GetValueOrDefault();
+            return (_context.ProjectFirms?.Any(e => e.FirmsId == id)).GetValueOrDefault();
         }
     }
 }

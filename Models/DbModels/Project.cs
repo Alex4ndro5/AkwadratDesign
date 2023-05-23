@@ -27,7 +27,7 @@ namespace AkwadratDesign.Models.DbModels
 
         public Project()
         {
-            
+
         }
 
         public Project(string title, string description, string image, TypeProject type, TypeClient typeClient)

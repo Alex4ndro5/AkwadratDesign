@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AkwadratDesign.Data;
+﻿using AkwadratDesign.Data;
 using AkwadratDesign.Models.DbModels;
-using RunGroopWebApp.Interfaces;
 using AkwadratDesign.ViewModels;
-using RunGroopWebApp.Services;
-using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using RunGroopWebApp.Interfaces;
 
 namespace AkwadratDesign.Controllers
 {
@@ -28,9 +21,9 @@ namespace AkwadratDesign.Controllers
         // GET: Projects
         public async Task<IActionResult> Index()
         {
-              return _context.Projects != null ? 
-                          View(await _context.Projects.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Projects'  is null.");
+            return _context.Projects != null ?
+                        View(await _context.Projects.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Projects'  is null.");
         }
 
         // GET: Projects/Details/5
@@ -167,14 +160,14 @@ namespace AkwadratDesign.Controllers
             {
                 _context.Projects.Remove(project);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProjectExists(int id)
         {
-          return (_context.Projects?.Any(e => e.ProjectId == id)).GetValueOrDefault();
+            return (_context.Projects?.Any(e => e.ProjectId == id)).GetValueOrDefault();
         }
     }
 }

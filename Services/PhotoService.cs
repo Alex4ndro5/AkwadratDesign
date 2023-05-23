@@ -13,9 +13,9 @@ namespace RunGroopWebApp.Services
         public PhotoService(IOptions<CloudinarySettings> config)
         {
             var acc = new Account(
-                config.Value.CloudName,
-                config.Value.ApiKey,
-                config.Value.ApiSecret
+                config.Value.CloudName = "dw9wb3izx",
+                config.Value.ApiKey = "379734393841956",
+                config.Value.ApiSecret = "zIHWSxeUKr8DMzpYEtZ_G8zqFZM"
                 );
             _cloundinary = new Cloudinary(acc);
         }
