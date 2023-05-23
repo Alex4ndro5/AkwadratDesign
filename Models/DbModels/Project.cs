@@ -24,7 +24,7 @@ namespace AkwadratDesign.Models.DbModels
         public TypeProject TypeProject { get; set; }
         public TypeClient TypeClient { get; set; }
         public int ClientId { get; set; } // Foreign key property
-        public Client Client { get; set; } // Navigation property to the associated client
+        public virtual Client Client { get; set; } // Navigation property to the associated client
         public List<ProjectFirm> ProjectFirms { get; } = new();
         public List<Firm> Firms { get; } = new();
 

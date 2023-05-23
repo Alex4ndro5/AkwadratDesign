@@ -65,7 +65,7 @@ namespace AkwadratDesign.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClientId"] = new SelectList(_context.Clients, "ClientId", "Email", project.ClientId);
+            ViewBag.ClientId = new SelectList(_context.Clients, "ClientId", "Email", project.ClientId);
             return View(project);
         }
 
