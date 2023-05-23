@@ -10,6 +10,7 @@ namespace AkwadratDesign.Models.DbModels
 ///  - Właściwość `Image` przechowuje ścieżkę do obrazka projektu.
 ///  - Właściwość `Type` określa typ projektu.
 ///  - Właściwość `TypeClient` określa typ klienta projektu.
+///  - Właściwość `ClientId` jest kluczem obcym
 ///   - Listy `ProjectFirms` i `Firms` przechowują powiązane obiekty firm projektowych i firm odpowiednio. (wynika z właściwości wiele do wielu) 
 /// </summary>
     public class Project
@@ -24,7 +25,7 @@ namespace AkwadratDesign.Models.DbModels
         public TypeProject TypeProject { get; set; }
         public TypeClient TypeClient { get; set; }
         public int ClientId { get; set; } // Foreign key property
-        public virtual Client Client { get; set; } // Navigation property to the associated client
+        public virtual Client? Client { get; set; } // Navigation property to the associated client
         public List<ProjectFirm> ProjectFirms { get; } = new();
         public List<Firm> Firms { get; } = new();
 
