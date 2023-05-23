@@ -61,7 +61,7 @@ namespace AkwadratDesign.Controllers
         /// <returns>Zwraca widok do tworzenia nowego projektu.</returns>
         public IActionResult Create()
         {
-            ViewData["ClientId"] = new SelectList(_context.Clients, "ClientId", "Email");
+            ViewBag.ClientId = new SelectList(_context.Clients, "ClientId", "Email");
             return View();
         }
 
