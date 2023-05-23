@@ -26,21 +26,6 @@
 }
 
 
-/*.button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    text-decoration: none;
-    cursor: pointer;
-    display: inline-block;
-    color: var(--background);
-    background-color: var(--site1);
-    padding: 16px 32px;
-    font-size: 20;
-    border-radius: 8px;
-    font-weight: 200;
-}*/
 
 .button {
     position: relative;
