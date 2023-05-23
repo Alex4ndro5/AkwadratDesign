@@ -16,6 +16,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms
+        /// <summary>
+        ///  Pobiera listę wszystkich firm z bazy danych wraz z powiązanymi klientami.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.Firms.Include(f => f.Client);
@@ -23,6 +27,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Details/5
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /Firms/Details/{id}
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Jeśli identyfikator nie został podany lub zbiór danych 'ApplicationDbContext.Firms' jest pusty, zostanie zwrócony błąd. W przeciwnym razie pobiera firmę o podanym identyfikatorze wraz z powiązanym klientem.Jeśli firma nie istnieje, zostanie zwrócony błąd. W przeciwnym razie zwraca widok z danymi firmy.</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Firms == null)
@@ -42,6 +51,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Create
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /Firms/Create
+        /// </summary>
+        /// <returns> Zwraca widok z formularzem tworzenia nowej firmy. Dodatkowo pobiera listę klientów z bazy danych i przekazuje ją do widoku jako SelectList.</returns>
         public IActionResult Create()
         {
             ViewData["ClientId"] = new SelectList(_context.Clients, "ClientId", "Email");
@@ -51,6 +64,11 @@ namespace AkwadratDesign.Controllers
         // POST: Firms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Metoda obsługuje żądanie POST na adres /Firms/Create
+        /// </summary>
+        /// <param name="firm"></param>
+        /// <returns> Jeśli dane firmy są poprawne, firma zostaje dodana do bazy danych. Następnie użytkownik zostaje przekierowany do strony z listą firm. Jeśli dane firmy są niepoprawne, zwracany jest widok z formularzem wraz z błędami.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirmId,FirmName,ClientId")] Firm firm)
@@ -66,6 +84,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Edit/5
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /Firms/Edit/{id}
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> Jeśli identyfikator nie został podany lub zbiór danych 'ApplicationDbContext.Firms' jest pusty, zostanie zwrócony błąd. W przeciwnym razie pobiera firmę o podanym identyfikatorze.Jeśli firma nie istnieje, zostanie zwrócony błąd. W przeciwnym razie zwraca widok z formularzem edycji firmy. Dodatkowo pobiera listę klientów z bazy danych i przekazuje ją do widoku jako SelectList.</returns>
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Firms == null)
@@ -85,6 +108,12 @@ namespace AkwadratDesign.Controllers
         // POST: Firms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Metoda obsługuje żądanie POST na adres /Firms/Edit/{id}
+        /// </summary>
+        /// <param name="id"> Parametr 'id' to identyfikator firmy, którą użytkownik chce edytować. Parametr 'firm' to obiekt reprezentujący zmienione dane firmy.</param>
+        /// <param name="firm"></param>
+        /// <returns>Jeśli identyfikator nie jest zgodny z identyfikatorem firmy w obiekcie 'firm', zostanie zwrócony błąd. Jeśli dane firmy są poprawne, firma zostaje zaktualizowana w bazie danych. Następnie użytkownik zostaje przekierowany do strony z listą firm. Jeśli dane firmy są niepoprawne, zwracany jest widok z formularzem edycji wraz z błędami.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FirmId,FirmName,ClientId")] Firm firm)
@@ -119,6 +148,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Delete/5
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /Firms/Delete/{id}
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Jeśli identyfikator nie został podany lub zbiór danych 'ApplicationDbContext.Firms' jest pusty, zostanie zwrócony błąd. W przeciwnym razie pobiera firmę o podanym identyfikatorze wraz z powiązanym klientem. Jeśli firma nie istnieje, zostanie zwrócony błąd. W przeciwnym razie zwraca widok z danymi firmy, który potwierdza chęć usunięcia firmy.</returns>
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Firms == null)
@@ -138,6 +172,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // POST: Firms/Delete/5
+        /// <summary>
+        /// Metoda obsługuje żądanie POST na adres /Firms/DeleteConfirmed/{id}
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns> Jeśli zbiór danych 'ApplicationDbContext.Firms' jest pusty, zostanie zwrócony błąd. Jeśli firma o podanym identyfikatorze istnieje, zostaje usunięta z bazy danych. Następnie użytkownik zostaje przekierowany do strony z listą firm.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -155,7 +194,11 @@ namespace AkwadratDesign.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        /// <summary>
+        /// Metoda sprawdza, czy firma o podanym identyfikatorze istnieje w bazie danych.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool FirmExists(int id)
         {
             return (_context.Firms?.Any(e => e.FirmId == id)).GetValueOrDefault();
