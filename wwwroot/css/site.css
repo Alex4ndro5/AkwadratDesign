@@ -504,32 +504,44 @@ footer {
     }*/
 /* ABOUT*/
 .about {
-    background: var(--site2);
+    /*   background: var(--site2);
     padding-bottom: 3rem;
-    height: 100vh;
+    height: 100vh;*/
+    margin: 0;
+    padding: 0;
 }
 
     .about .row {
-        display: flex;
+        /* display: flex;
         align-items: center;
         position: relative;
         justify-self: center;
-        flex-wrap: wrap;
+        flex-wrap: wrap;*/
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: var(--site2);
+        position: relative;
     }
 
         .about .row .images {
-            flex: 1 1 40rem;
+            /* flex: 1 1 40rem;
             padding: 2rem 0;
             text-align: center;
             width: 45%;
             height: 80%;
            
             bottom: 0;
+            right: 100px;*/
+            width: 45%;
+            height: 80%;
+            position: absolute;
+            bottom: 0;
             right: 100px;
         }
 
         .about .row .images img {
-            height: 28rem;
+            height: 100%;
             position: absolute;
             left: 50%;
             bottom: 0;
@@ -538,25 +550,25 @@ footer {
         }
 
         .about .row .content {
-            flex: 1 1 40rem;
+           /* flex: 1 1 40rem;*/
             margin-left: 8%;
             margin-top: 15%;
         }
-        .about .row .images:hover .shape {
+        .about .row .images:hover .obraz {
             bottom: 40px;
         }
 
-        .about .row .images:hover .girl {
+        .about .row .images:hover .women {
             left: 45%;
             .about .row .content h3 {
                 font-size: 5.5rem;
             }
 
-            .about .row .content p {
+           /* .about .row .content p {
                 color: var(--text);
                 padding-bottom: 1rem 0;
                 line-height: 22px;
-            }
+            }*/
 
 
 /*
