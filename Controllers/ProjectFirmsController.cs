@@ -10,6 +10,9 @@ using AkwadratDesign.Models.DbModels;
 
 namespace AkwadratDesign.Controllers
 {
+    /// <summary>
+    /// Kontroler obsługujący operacje na danych dotyczących firm projektowych.
+    /// </summary>
     public class ProjectFirmsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,6 +23,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: ProjectFirms
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /ProjectFirms/Index.
+        /// </summary>
+        /// <returns>Zwraca widok z listą firm projektowych.</returns>
         public async Task<IActionResult> Index()
         {
             var applicationDbContext = _context.ProjectFirms.Include(p => p.Firm).Include(p => p.Project);
@@ -27,6 +34,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: ProjectFirms/Details/5
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /ProjectFirms/Details/5.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy projektowej.</param>
+        /// <returns>Zwraca widok z informacjami szczegółowymi o firmie projektowej o podanym identyfikatorze.</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.ProjectFirms == null)
@@ -47,6 +59,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: ProjectFirms/Create
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /ProjectFirms/Create.
+        /// </summary>
+        /// <returns>Zwraca widok do tworzenia nowej firmy projektowej.</returns>
         public IActionResult Create()
         {
             ViewData["FirmsId"] = new SelectList(_context.Firms, "FirmId", "FirmName");
@@ -57,6 +73,11 @@ namespace AkwadratDesign.Controllers
         // POST: ProjectFirms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Metoda obsługuje żądanie POST na adres /ProjectFirms/Create.
+        /// </summary>
+        /// <param name="projectFirm">Nowa firma projektowa do utworzenia.</param>
+        /// <returns>Jeśli zapisanie firmy projektowej powiedzie się, przekierowuje na stronę z listą firm projektowych. W przeciwnym razie zwraca widok z formularzem do poprawy danych.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirmsId,ProjectsId")] ProjectFirm projectFirm)
@@ -73,6 +94,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: ProjectFirms/Edit/5
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /ProjectFirms/Edit/5.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy projektowej do edycji.</param>
+        /// <returns>Zwraca widok edycji firmy projektowej o podanym identyfikatorze.</returns>
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.ProjectFirms == null)
@@ -93,6 +119,12 @@ namespace AkwadratDesign.Controllers
         // POST: ProjectFirms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Metoda obsługuje żądanie POST na adres /ProjectFirms/Edit/5.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy projektowej do edycji.</param>
+        /// <param name="projectFirm">Edytowana firma projektowa.</param>
+        /// <returns>Jeśli edycja firmy projektowej powiedzie się, przekierowuje na stronę z listą firm projektowych. W przeciwnym razie zwraca widok z formularzem do poprawy danych.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FirmsId,ProjectsId")] ProjectFirm projectFirm)
@@ -128,6 +160,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: ProjectFirms/Delete/5
+        /// <summary>
+        /// Metoda obsługuje żądanie GET na adres /ProjectFirms/Delete/5.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy projektowej do usunięcia.</param>
+        /// <returns>Zwraca widok potwierdzenia usunięcia firmy projektowej o podanym identyfikatorze.</returns>
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.ProjectFirms == null)
@@ -148,6 +185,12 @@ namespace AkwadratDesign.Controllers
         }
 
         // POST: ProjectFirms/Delete/5
+
+        /// <summary>
+        /// Metoda obsługuje żądanie POST na adres /ProjectFirms/Delete/5.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy projektowej do usunięcia.</param>
+        /// <returns>Jeśli usunięcie firmy projektowej powiedzie się, przekierowuje na stronę z listą firm projektowych. W przeciwnym razie zwraca błąd.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
