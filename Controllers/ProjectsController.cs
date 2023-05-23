@@ -1,12 +1,14 @@
 ﻿using AkwadratDesign.Data;
 using AkwadratDesign.Models.DbModels;
 using AkwadratDesign.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Interfaces;
 
 namespace AkwadratDesign.Controllers
 {
+    [Authorize]
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
