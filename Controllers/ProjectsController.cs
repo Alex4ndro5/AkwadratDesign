@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AkwadratDesign.Data;
 using AkwadratDesign.Models.DbModels;
+using RunGroopWebApp.Interfaces;
+using AkwadratDesign.ViewModels;
+using RunGroopWebApp.Services;
+using System.Net;
 
 namespace AkwadratDesign.Controllers
 {
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IPhotoService photoService;
 
-        public ProjectsController(ApplicationDbContext context)
+        public ProjectsController(ApplicationDbContext context, IPhotoService photoservice)
         {
             _context = context;
+            this.photoService = photoservice;
         }
 
         // GET: Projects
@@ -56,15 +62,26 @@ namespace AkwadratDesign.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjectId,Title,Description,Image,Type,TypeClient")] Project project)
+        public async Task<IActionResult> Create(CreateProjectViewModel projectVM)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(project);
+                _context.Add(projectVM);
+                var result = await photoService.AddPhotoAsync(projectVM.Image);
+                var project = new Project
+                {
+                    Title = projectVM.Title,
+                    Description = projectVM.Description,
+                    Image = result.Url.ToString(),
+                    TypeClient = projectVM.TypeClient,
+                    Type = projectVM.Type
+
+                };
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(project);
+            return View(projectVM);
         }
 
         // GET: Projects/Edit/5
