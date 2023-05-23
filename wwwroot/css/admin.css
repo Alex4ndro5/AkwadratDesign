@@ -1,3 +1,4 @@
+
 :root {
     --text: #fffff;
     --background: #ffffff;
@@ -133,42 +134,17 @@ div .cont{
         padding-right: 64px;
     }
 
-    banner .container h2 {
-        font-size: 32px;
-    }
-
-    .banner .container h3 {
-        font-size: 20px;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     header .container .logo h1 {
         display: none;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
     .container {
         padding-left: 32px;
         padding-right: 32px;
     }
-
-    header .container .logo img {
-        display: none;
-    }
-
     .container h2 {
         text-align: center;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
     }
 }
