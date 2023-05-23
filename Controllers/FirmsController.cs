@@ -10,6 +10,9 @@ using AkwadratDesign.Models.DbModels;
 
 namespace AkwadratDesign.Controllers
 {
+    /// <summary>
+    /// Kontroler obsługujący zarządzanie firmami.
+    /// </summary>
     public class FirmsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,6 +23,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms
+        /// <summary>
+        /// Akcja wyświetlająca listę firm.
+        /// </summary>
+        /// <returns>Widok zawierający listę firm.</returns>
         public async Task<IActionResult> Index()
         {
               return _context.Firms != null ? 
@@ -28,6 +35,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Details/5
+        /// <summary>
+        /// Akcja wyświetlająca szczegóły firmy o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy.</param>
+        /// <returns>Widok zawierający szczegóły firmy.</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Firms == null)
@@ -46,6 +58,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Create
+        /// <summary>
+        /// Akcja wyświetlająca formularz do tworzenia nowej firmy.
+        /// </summary>
+        /// <returns>Widok zawierający formularz do tworzenia nowej firmy.</returns>
         public IActionResult Create()
         {
             return View();
@@ -54,6 +70,11 @@ namespace AkwadratDesign.Controllers
         // POST: Firms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Akcja obsługująca tworzenie nowej firmy.
+        /// </summary>
+        /// <param name="firm">Nowa firma do dodania.</param>
+        /// <returns>Przekierowanie do widoku listy firm po pomyślnym dodaniu firmy.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FirmId,FirmName")] Firm firm)
@@ -68,6 +89,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Edit/5
+        /// <summary>
+        /// Akcja wyświetlająca formularz do edycji danych firmy o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy.</param>
+        /// <returns>Widok zawierający formularz do edycji danych firmy.</returns>
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Firms == null)
@@ -86,6 +112,12 @@ namespace AkwadratDesign.Controllers
         // POST: Firms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Akcja obsługująca zapis edytowanych danych firmy.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy.</param>
+        /// <param name="firm">Edytowana firma.</param>
+        /// <returns>Przekierowanie do widoku listy firm po pomyślnym zapisie zmian.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("FirmId,FirmName")] Firm firm)
@@ -119,6 +151,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Firms/Delete/5
+        /// <summary>
+        /// Akcja wyświetlająca formularz potwierdzenia usunięcia firmy o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy.</param>
+        /// <returns>Widok zawierający formularz potwierdzenia usunięcia firmy.</returns>
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Firms == null)
@@ -137,6 +174,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // POST: Firms/Delete/5
+        /// <summary>
+        /// Akcja obsługująca usunięcie firmy o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator firmy.</param>
+        /// <returns>Przekierowanie do widoku listy firm po pomyślnym usunięciu firmy.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

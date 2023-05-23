@@ -9,6 +9,9 @@ namespace AkwadratDesign.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        /// <summary>
+        /// Kontroler obsługujący stronę główną i inne podstrony.
+        /// </summary>
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;

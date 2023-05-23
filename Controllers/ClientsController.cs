@@ -9,7 +9,9 @@ using AkwadratDesign.Data;
 using AkwadratDesign.Models.DbModels;
 
 namespace AkwadratDesign.Controllers
-{
+{/// <summary>
+ /// Kontroler obsługujący zarządzanie klientami.
+ /// </summary>
     public class ClientsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,6 +22,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Clients
+        /// <summary>
+        /// Akcja wyświetlająca listę klientów.
+        /// </summary>
+        /// <returns>Widok zawierający listę klientów.</returns>
         public async Task<IActionResult> Index()
         {
               return _context.Clients != null ? 
@@ -28,6 +34,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Clients/Details/5
+        /// <summary>
+        /// Akcja wyświetlająca szczegóły klienta o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator klienta.</param>
+        /// <returns>Widok zawierający szczegóły klienta.</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Clients == null)
@@ -46,6 +57,10 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Clients/Create
+        /// <summary>
+        /// Akcja wyświetlająca formularz do tworzenia nowego klienta.
+        /// </summary>
+        /// <returns>Widok zawierający formularz do tworzenia nowego klienta.</returns>
         public IActionResult Create()
         {
             return View();
@@ -54,6 +69,11 @@ namespace AkwadratDesign.Controllers
         // POST: Clients/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Akcja obsługująca tworzenie nowego klienta.
+        /// </summary>
+        /// <param name="client">Nowy klient do dodania.</param>
+        /// <returns>Przekierowanie do widoku listy klientów po pomyślnym dodaniu klienta.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ClientId,Name,Surname,Email,Message")] Client client)
@@ -68,6 +88,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Clients/Edit/5
+        /// <summary>
+        /// Akcja wyświetlająca formularz do edycji danych klienta o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator klienta.</param>
+        /// <returns>Widok zawierający formularz do edycji danych klienta.</returns>
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Clients == null)
@@ -86,6 +111,12 @@ namespace AkwadratDesign.Controllers
         // POST: Clients/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Akcja obsługująca zapis edytowanych danych klienta.
+        /// </summary>
+        /// <param name="id">Identyfikator klienta.</param>
+        /// <param name="client">Edytowany klient.</param>
+        /// <returns>Przekierowanie do widoku listy klientów po pomyślnym zapisie zmian.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ClientId,Name,Surname,Email,Message")] Client client)
@@ -119,6 +150,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // GET: Clients/Delete/5
+        /// <summary>
+        /// Akcja wyświetlająca formularz potwierdzenia usunięcia klienta o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator klienta.</param>
+        /// <returns>Widok zawierający formularz potwierdzenia usunięcia klienta.</returns>
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Clients == null)
@@ -137,6 +173,11 @@ namespace AkwadratDesign.Controllers
         }
 
         // POST: Clients/Delete/5
+        /// <summary>
+        /// Akcja obsługująca usunięcie klienta o podanym identyfikatorze.
+        /// </summary>
+        /// <param name="id">Identyfikator klienta.</param>
+        /// <returns>Przekierowanie do widoku listy klientów po pomyślnym usunięciu klienta.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
