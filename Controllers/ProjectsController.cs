@@ -216,5 +216,11 @@ namespace AkwadratDesign.Controllers
         {
             return (_context.Projects?.Any(e => e.ProjectId == id)).GetValueOrDefault();
         }
+
+        public IActionResult Portfolio()
+        {
+            List<Project> projects = _context.Projects.ToList();
+            return View(projects);
+        }
     }
 }

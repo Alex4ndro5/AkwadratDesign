@@ -502,6 +502,7 @@ footer {
         outline-offset: calc(-1*var(--s));
         background: conic-gradient(from 90deg at 1px 1px,#0000 25%,#000 0);
     }*/
+/* ABOUT*/
 .about {
     background: var(--site2);
     padding-bottom: 3rem;
@@ -511,27 +512,42 @@ footer {
     .about .row {
         display: flex;
         align-items: center;
+        position: relative;
         justify-self: center;
         flex-wrap: wrap;
     }
 
-        .about .row .image {
+        .about .row .images {
             flex: 1 1 40rem;
             padding: 2rem 0;
             text-align: center;
+            width: 45%;
+            height: 80%;
+           
+            bottom: 0;
+            right: 100px;
         }
 
-            .about .row .image img {
-                height: 28rem;
-                box-shadow: .5rem .8rem .8rem var(--text);
-          
-            }
+        .about .row .images img {
+            height: 28rem;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            transition: bottom 1s, left 1s;
+        }
 
         .about .row .content {
             flex: 1 1 40rem;
-            
+            margin-left: 8%;
+            margin-top: 15%;
+        }
+        .about .row .images:hover .shape {
+            bottom: 40px;
         }
 
+        .about .row .images:hover .girl {
+            left: 45%;
             .about .row .content h3 {
                 font-size: 5.5rem;
             }
@@ -539,7 +555,30 @@ footer {
             .about .row .content p {
                 color: var(--text);
                 padding-bottom: 1rem 0;
+                line-height: 22px;
             }
+
+
+/*
+
+
+    .images img {
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        transition: bottom 1s, left 1s;
+    }
+
+    .images:hover .shape {
+        bottom: 40px;
+    }
+
+    .images:hover .girl {
+        left: 45%;
+    }*/
+
 
 
 @media screen and (max-width: 1400px) {
