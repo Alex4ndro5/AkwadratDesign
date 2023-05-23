@@ -7,7 +7,7 @@ namespace AkwadratDesign.Models.DbModels
     ///   Klasa: Firm
     ///   Właściwości:
     ///   - FirmId (int): Główny identyfikator firmy.
-    ///   - FirmName (string): Nazwa firmy. Ta właściwość jest wymagana.
+    ///   - FirmName (string): Nazwa firmy. Ta właściwość jest wymagana. Pobiera lub ustawia nazwę firmy. Minimalna liczba znaków to 2, a maksymalna 50.
     ///   - ProjectFirms (List<ProjectFirm>): Lista firm projektowych powiązanych z tą firmą. (połączenie wiele do wielu)
     ///   - Projects (List<Project>): Lista projektów powiązanych z tą firmą. (połączenie wiele do wielu)
     /// </summary>
