@@ -15,13 +15,20 @@ namespace AkwadratDesign.Models.DbModels
     {
         [Key]
         public int ClientId { get; set; }
+        [Display(Name = "Imie")]
         [Required]
+        [StringLength(50, MinimumLength = 2)]
         public string Name { get; set; }
+        [Display(Name = "Nazwisko")]
         [Required]
+        [StringLength(50, MinimumLength = 2)]
         public string Surname { get; set; }
         [Required]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
         public string Message { get; set; }
+        public List<Project> Projects { get; set; } = new List<Project>();
+
     }
 }

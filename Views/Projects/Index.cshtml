@@ -2,13 +2,13 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<h1>Index</h1>
 
-<h2>
-    <a asp-action="Create">Dodaj nowy</a>
-</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 <table class="table">
     <thead>
         <tr>
@@ -22,10 +22,13 @@
                 @Html.DisplayNameFor(model => model.Image)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Type)
+                @Html.DisplayNameFor(model => model.TypeProject)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.TypeClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
             </th>
             <th></th>
         </tr>
@@ -43,10 +46,13 @@
                 @Html.DisplayFor(modelItem => item.Image)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.TypeProject)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TypeClient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.Email)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a> |

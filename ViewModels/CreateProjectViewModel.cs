@@ -8,7 +8,7 @@ namespace AkwadratDesign.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public IFormFile Image { get; set; }
-        public TypeProject Type { get; set; }
+        public TypeProject TypeProject { get; set; }
         public TypeClient TypeClient { get; set; }
     }
 }

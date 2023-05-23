@@ -16,27 +16,17 @@ namespace AkwadratDesign.Models.DbModels
     {
         [Key]
         public int ProjectId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Description { get; set; }
-        public string Image { get; set; }
-        public TypeProject Type { get; set; }
+        public string? Image { get; set; }
+        public TypeProject TypeProject { get; set; }
         public TypeClient TypeClient { get; set; }
-
+        public int ClientId { get; set; } // Foreign key property
+        public Client Client { get; set; } // Navigation property to the associated client
         public List<ProjectFirm> ProjectFirms { get; } = new();
         public List<Firm> Firms { get; } = new();
 
-        public Project()
-        {
-
-        }
-
-        public Project(string title, string description, string image, TypeProject type, TypeClient typeClient)
-        {
-            Title = title;
-            Description = description;
-            Image = image;
-            Type = type;
-            TypeClient = typeClient;
-        }
     }
 }

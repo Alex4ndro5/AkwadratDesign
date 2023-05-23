@@ -27,6 +27,10 @@ namespace AkwadratDesign.Data
              l => l.HasOne<Firm>(e => e.Firm).WithMany(e => e.ProjectFirms).HasForeignKey(e => e.FirmsId),
              r => r.HasOne<Project>(e => e.Project).WithMany(e => e.ProjectFirms).HasForeignKey(e => e.ProjectsId));
 
+            modelBuilder.Entity<Client>()
+            .HasMany(c => c.Projects)
+            .WithOne(p => p.Client)
+            .HasForeignKey(p => p.ClientId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
