@@ -10,12 +10,12 @@ namespace AkwadratDesign.Controllers
     public class ProjectsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly IPhotoService photoService;
+        private readonly IPhotoService _photoService;
 
         public ProjectsController(ApplicationDbContext context, IPhotoService photoservice)
         {
             _context = context;
-            this.photoService = photoservice;
+            _photoService = photoservice;
         }
 
         // GET: Projects
@@ -60,7 +60,7 @@ namespace AkwadratDesign.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(projectVM);
-                var result = await photoService.AddPhotoAsync(projectVM.Image);
+                var result = await _photoService.AddPhotoAsync(projectVM.Image);
                 var project = new Project
                 {
                     Title = projectVM.Title,
