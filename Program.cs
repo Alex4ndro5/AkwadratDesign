@@ -63,6 +63,14 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Add the seed data initialization
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+    SeedData.Initialize(dbContext);
+}
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

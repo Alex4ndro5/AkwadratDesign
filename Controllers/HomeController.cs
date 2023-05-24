@@ -99,6 +99,16 @@ namespace AkwadratDesign.Controllers
         /// </summary>
         /// <returns>  Zwraca widok z informacją o błędzie. Przekazuje identyfikator błędu do widoku.</returns>
 
+        [Route("/dokumentacja/")]
+        public IActionResult Doc()
+        {
+            return View();
+        }
+        [Route("/instrukcja/")]
+        public IActionResult UserGuide()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
