@@ -1,9 +1,11 @@
 using AkwadratDesign.Data;
 using AkwadratDesign.Helpers;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Interfaces;
 using RunGroopWebApp.Services;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +30,29 @@ if (app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseExceptionHandler(errorApp =>
+    {
+        errorApp.Run(async context =>
+        {
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+
+            var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+            var exception = exceptionHandlerPathFeature?.Error;
+
+            if (exception is InvalidOperationException)
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+            }
+            else if (exception is UnauthorizedAccessException)
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+            }
+
+            // Other exception handling logic or response customization
+
+            await context.Response.WriteAsync("An error occurred. Please try again later.");
+        });
+    });
     app.UseHsts();
 }
 
@@ -39,6 +62,14 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+// Add the seed data initialization
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
+    SeedData.Initialize(dbContext);
+}
 
 app.MapControllerRoute(
     name: "default",
