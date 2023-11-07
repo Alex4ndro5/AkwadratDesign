@@ -11,7 +11,6 @@
 - [Views](#views)
 - [Database](#database)
 - [Team Responsibilities](#team-responsibilities)
-- [Documentation](#documentation)
 
 ## Project Goal
 
@@ -28,7 +27,11 @@ Each controller, except the Home controller, was generated based on models using
 ## Models
 
 Four models were created for the project:
-- **Client Model**: Connected to the Project model through a one-to-many relationship. To handle many-to-many relationships, the ProjectFirm model was also generated, linking Project and Firm models. The documentation for model creation is included in the .xml file generated with the solution build.
+- **Client Model**
+- **Project Model**
+- **Firm Model**
+- **ProjectFirm Model**
+Connected to the Project model through a one-to-many relationship. To handle many-to-many relationships, the ProjectFirm model was also generated, linking Project and Firm models. The documentation for model creation is included in the .xml file generated with the solution build.
 
 ## Views
 
@@ -53,11 +56,5 @@ A connection to a local database was established by adding a ConnectionString. M
 - **Frontend (Layout, CSS)**: Natalia Łyś
 - **Local Database**: Emilia Sroka
 - **Documentation**: Natalia Łyś
-
-![Team Collaboration](./images/team_collaboration.png)
-
-## Documentation
-
-For detailed documentation and instructions in Polish, please refer to the project's documentation files.
 
 **Explore the application and manage your interior design projects seamlessly!**
