@@ -31,6 +31,7 @@ Four models were created for the project:
 - **Project Model**
 - **Firm Model**
 - **ProjectFirm Model**
+  
 Connected to the Project model through a one-to-many relationship. To handle many-to-many relationships, the ProjectFirm model was also generated, linking Project and Firm models. The documentation for model creation is included in the .xml file generated with the solution build.
 
 ## Views
